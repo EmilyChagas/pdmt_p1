@@ -23,14 +23,14 @@ export class LembreteEntrada extends Component {
         <div className='d-flex flex-column flex-sm-row align-items-center justify-content-center w-auto'>
           <input 
             type="text"
-            className="form-control w-auto w-sm-auto"
+            className="form-control w-100 w-sm-auto"
             placeholder="Digite um lembrete"
             value={this.state.texto}
             onChange={this.escreveLembrete}
           />
             <button 
             onClick={this.adicionaLembrete}
-            className="btn btn-outline-primary w-100 w-sm-auto ms-sm-2 mt-2 mt-sm-0">
+            className="btn w-40 w-sm-100 ms-sm-2 mt-2 mt-sm-0" style={{backgroundColor:'#e85d04'}}>
              <i className="fa-solid fa-paper-plane"></i>
             </button>
         </div>
