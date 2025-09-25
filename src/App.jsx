@@ -48,9 +48,12 @@ export default class App extends React.Component {
               className="col-sm-12 col-lg-6 col-xxl-4 text-center d-flex justify-content-center flex-column w-auto">
               <button
                 className="btn btn-warning mb-3"
-                style={{width:50}}
+                style={{ width: 50 }}
                 onClick={this.listarFavoritos}>
-               <i className={this.state.mostrarFavoritos ? "fa-solid fa-xmark" : "fa-solid fa-heart"} style={{color:'#ffffffff'}}></i>
+                <i 
+                  className={this.state.mostrarFavoritos ? "fa-solid fa-xmark" : "fa-solid fa-heart"} 
+                  style={{ color: '#ffffffff' }}>
+                </i>
               </button>
               <div className='mb-2'>
                 {this.filtrarLembretes().map((item, index) => (
