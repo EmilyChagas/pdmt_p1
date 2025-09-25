@@ -25,6 +25,16 @@ export default class App extends React.Component {
     })
   }
 
+  filtrarLembretes = () => {
+    if (this.state.mostrarFavoritos) {
+      return this.state.lembretes.filter(l => l.favorito)
+    }
+    return this.state.lembretes
+  }
+
+  listarFavoritos = () => {
+    this.setState({ mostrarFavoritos: !this.state.mostrarFavoritos })
+  }
   render() {
     return (
       <div
@@ -36,14 +46,21 @@ export default class App extends React.Component {
             className="col align-items-center justify-content-center">
             <div
               className="col-sm-12 col-lg-6 col-xxl-4 text-center d-flex justify-content-center flex-column w-auto">
+              <button
+                className="btn btn-warning mb-3"
+                style={{width:50}}
+                onClick={this.listarFavoritos}>
+               <i className={this.state.mostrarFavoritos ? "fa-solid fa-xmark" : "fa-solid fa-heart"} style={{color:'#ffffffff'}}></i>
+              </button>
               <div className='mb-2'>
-                {this.state.lembretes.map((item, index) => (
+                {this.filtrarLembretes().map((item, index) => (
                   <LembreteLista
                     key={index}
                     lembreteLista={item.lembrete}
                     favorito={item.favorito}
-                    remove={() => this.excluirLembrete(index)} 
-                    favoritar={() => this.favoritarLembrete(index)}/>
+                    remove={() => this.excluirLembrete(index)}
+                    favoritar={() => this.favoritarLembrete(index)}
+                  />
                 ))}
               </div>
               <LembreteEntrada
