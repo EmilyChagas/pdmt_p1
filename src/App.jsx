@@ -8,6 +8,11 @@ export default class App extends React.Component {
     lembretes: []
   }
 
+  excluirLembrete = (index) => {
+    const remove = this.state.lembretes.filter((_, i) => i !== index)
+    this.setState({ lembretes: remove })
+  }
+
 
   adicionarLembrete = (novo) => {
     this.setState({
@@ -19,22 +24,23 @@ export default class App extends React.Component {
     return (
       <div
         className="d-flex align-items-center justify-content-center m-auto w-50 p-12 mt-4"
-        style={{ backgroundColor: '#6a040f', padding: 12, borderRadius: 10, color: '#e0e1dd'}}>
+        style={{ backgroundColor: '#6a040f', padding: 12, borderRadius: 10, color: '#e0e1dd' }}>
         <div
           className="container mb-2">
           <div
             className="col align-items-center justify-content-center">
             <div
               className="col-sm-12 col-lg-6 col-xxl-4 text-center d-flex justify-content-center flex-column w-auto">
-              <div className='mb-2'>              
-                  {this.state.lembretes.map((item, index) => (
-                    <LembreteLista
-                      key={index}
-                      lembreteLista={item.lembrete}
-                    />
-                  ))}
-                </div>
-              <LembreteEntrada onAdicionar={this.adicionarLembrete} />
+              <div className='mb-2'>
+                {this.state.lembretes.map((item, index) => (
+                  <LembreteLista
+                    key={index}
+                    lembreteLista={item.lembrete}
+                    remove={() => this.excluirLembrete(index)} />
+                ))}
+              </div>
+              <LembreteEntrada
+                onAdicionar={this.adicionarLembrete} />
             </div>
           </div>
         </div>
