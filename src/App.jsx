@@ -5,11 +5,7 @@ import LembreteEntrada from './LembreteEntrada'
 import LembreteLista from './LembreteLista'
 export default class App extends React.Component {
   state = {
-    lembretes: [
-      { lembrete: 'Terminar a P1 do Prof Bossini'},
-       { lembrete: 'Comprar pão amanhã'},
-       { lembrete: 'Corrigir planilha do Trabalho'},
-    ]
+    lembretes: []
   }
 
 
@@ -22,10 +18,10 @@ export default class App extends React.Component {
   render() {
     return (
       <div
-        className="d-flex align-items-center justify-content-center m-auto w-50 p-12 mt-4 mb-4"
+        className="d-flex align-items-center justify-content-center m-auto w-50 p-12 mt-4"
         style={{ backgroundColor: '#6a040f', padding: 12, borderRadius: 10, color: '#e0e1dd'}}>
         <div
-          className="container">
+          className="container mb-2">
           <div
             className="col align-items-center justify-content-center">
             <div
