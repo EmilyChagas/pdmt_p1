@@ -13,10 +13,15 @@ export default class App extends React.Component {
     this.setState({ lembretes: remove })
   }
 
+  favoritarLembrete = (index) => {
+    const favoritar = [...this.state.lembretes]
+    favoritar[index].favorito = !favoritar[index].favorito
+    this.setState({ lembretes: favoritar })
+  }
 
   adicionarLembrete = (novo) => {
     this.setState({
-      lembretes: [...this.state.lembretes, { lembrete: novo }]
+      lembretes: [...this.state.lembretes, { lembrete: novo, favorito: false }]
     })
   }
 
@@ -36,7 +41,9 @@ export default class App extends React.Component {
                   <LembreteLista
                     key={index}
                     lembreteLista={item.lembrete}
-                    remove={() => this.excluirLembrete(index)} />
+                    favorito={item.favorito}
+                    remove={() => this.excluirLembrete(index)} 
+                    favoritar={() => this.favoritarLembrete(index)}/>
                 ))}
               </div>
               <LembreteEntrada

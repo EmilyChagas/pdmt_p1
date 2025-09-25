@@ -4,7 +4,7 @@ const LembreteLista = (props) => (
             <h4>{props.lembreteLista}</h4>
         </div>
         <div className="  w-30 ms-2 me-4 d-flex justify-content-right align-items-center">
-            <i className="fa-regular fa-star me-2" style={{ color: '#ffc300', cursor: 'pointer' }}></i>
+            <i className={props.favorito ? "fa-solid fa-star me-2" : "fa-regular fa-star me-2" }  style={{ color: '#ffc300', cursor: 'pointer' }} onClick={props.favoritar}></i>
             <i className="fa-solid fa-trash" style={{ color: 'write', cursor: 'pointer' }} onClick={props.remove}></i>
         </div>
     </div>
